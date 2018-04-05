@@ -96,3 +96,16 @@ Aula 6: Revertendo modificações:
         > git reset --hard e4f875d43d3456143fe819792251c23823e7cfd9
 		
 	7) Recriar o arquivo script.js e efetuar commit
+	
+Aula 7: Navegando entre os branches
+	1) "git branch" mostra todos os branches, o asterisco mostra o branch selecionado
+	2) Criar o branch 'teste'
+		> git branch teste
+	3) Mudar para o 'teste'
+		> git checkout teste
+	4) Criar os arquivos "branch_teste_README.md" e "branch_teste_script.js" e fazer o commit neles
+		> git commit -am "Commitando no branch 'teste'!"
+	5) Voltar para o branch master
+		> git checkout master
+	6) Executar 'git status' e ver que os novos arquivos criados não são reconhecidos no branch master
+		> git status
