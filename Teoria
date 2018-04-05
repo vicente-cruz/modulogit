@@ -1,0 +1,59 @@
+Aula 1: O que é, conceitos
+    Problemas de programar sem versionamento
+    1: Não conseguir voltar as alterações efetuadas.
+    2: Mesmo arquivo sendo editado por 2 ou mais programadores (código sobrescrito)
+
+    Solução: Versionamento
+        Tecnologias:
+            GIT:
+                GITHub
+                Bit Bucket
+            CVS, SVN, Mercurial
+Aula 2: Instalando
+    Conceito de Repositório
+    Instalando:
+    1) Ir em https://git-scm.com/downloads e ir em Download
+    2) Baixar e instalar
+
+Aula 3: Configurando
+    Abrir o CMD
+    1) Configurar nome: > git config --global user.name "Vicente Cruz"
+    2) Configurar e-mail: > git config --global user.email "vicentesc@daer.rs.gov.br"
+
+    Para visualizar configuração específica. Ex: nome.
+    > git config user.name
+
+    Para listar todas as configurações.
+    > git config --list
+
+Aula 4: Criando e iniciando repositório
+    Uso básico de um terminal shell/cmd. Comandos CD, DIR/LS, MKDIR, etc...
+    1) Ir até a pasta do projeto:
+    > cd xampp/htdocs/cursophp/modulo_git
+
+    2) Iniciar um repositório:
+    > git init
+
+    3) Será criada a seguinte estrutura de diretórios:
+    .git/
+        hooks/ (vários shellscripts chamados pre-*.sample ex:pre-push.sample, etc...)
+        info/
+            exclude
+        objects/
+            info/
+            pack/
+        refs/
+            head/
+            tags/
+        config
+        description
+        HEAD
+
+Aula 5: Branchs
+    Branch: versões diferentes do sistema
+        master: Versão principal do sistema
+    Commit: Envio dos arquivos modificados para o GIT.
+        "Comentar as alterações"
+    1) Criar o arquivo README.txt ou README.md e escrever alguma coisa nele
+    2) No CMD, dentro da pasta do projeto, digitar git status
+        > git status
