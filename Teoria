@@ -57,3 +57,13 @@ Aula 5: Branchs
     1) Criar o arquivo README.txt ou README.md e escrever alguma coisa nele
     2) No CMD, dentro da pasta do projeto, digitar git status
         > git status
+    3) Adicionar os arquivos criados ao "monitoramento" do GIT
+        > git add -A
+    4) Efetuar o "commit" com comentário
+        > git commit -m "Primeiro Commit"
+    5) Ver os registros dos commits com "git log"
+        > git log
+    6) Testar um "segundo commit".
+       a) Modificar o README.md e criar outros arquivos, ex: index.html, style.css
+       b) executer "git status" e ver as notificações de arquivos alterados e novos
+        > git status
