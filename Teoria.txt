@@ -86,8 +86,8 @@ Aula 6: Revertendo modificações:
     3) Fazer o GIT mostrar o que foi alterado com "git status"
         > git status
 		
-    4) Adicionar os arquivos criados com "git add -A"
-        > git add script.js
+    4) Adicionar os arquivos criados com "git add -A" ou "git add script.js"
+        > git add -A
 		
     5) Efetuar o segundo "commit"
         > git commit -m "Novo commit com alterações em README.md e adição de script.js"
@@ -144,7 +144,7 @@ Aula 10: Conectar repositório local
 			$ ssh-keygen.exe -t rsa -b 4096 -C "vicruz81@yahoo.com.br"
 			  i) Quando pedir caminho, aperte enter
 				  $ Enter file in which to save the key (/u//.ssh/id_rsa):
-			 ii) Informar o passphrase ou deixar em branco, confirmar depois:
+			 ii) Informar o passphrase, confirmar depois:
 				  $ Enter passphrase (empty for no passphrase):
 			iii) Abrir o arquivo contendo a chave pública do diretório informado na criação (ex: /u//.ssh/id_rsa)
 			 iv) Copiar seu conteúdo.
@@ -173,3 +173,152 @@ Aula 10: Conectar repositório local
 			> git push -u origin master
 			
 Aula 11: Alterações no repositório remoto
+	1) Alterar o README.md e crie um arquivo novo (ex: aula11_index.html)
+	
+	2) Adicionar o arquivo aula11_index.html ao repositório
+		> git add aula11_index.html
+	
+	3) Efetuar o commit
+		> git commit -am "Commit da alteração do README.md e criação do aula11_index.html"
+		
+	4) Mandar os arquivos para o repositório remoto, no Github.
+		> git push -u origin master
+		
+	5) Analisar no repositorio remoto se os arquivos estão lá.
+	
+	6) Modificar novamente README.md, modificar aula11_index.html e criar a pasta assets/ e, dentro dela, o arquivo script.js
+	
+	7) Adicionar todos os arquivos criados
+		> git add -A
+	
+	8) Efetuar o commit.
+		> git commit -am "Novas alteracoes em readme.md e aula11_index.html. Criacao de assets/script.js"
+		
+	9) Mandar as alteracoes para o Github
+		> git push -u origin master
+	
+	10) Analisar no repositorio remoto se os arquivos estão lá.
+	
+Aula 12: Ignorando arquivos do repositório.
+	1) Criar um arquivo qualquer. Ex: backup_db.sql e senhas.txt
+	
+	2) Fazer git status para ver as alterações
+		> git status
+		
+	3) criar o arquivo .gitignore e editá-lo
+	
+	4) Inserir dentro dele o nome do arquivo a ser ignorado. Ex: backup_db.sql
+		
+	5) Efetuar novo git status e notar que o arquivo inserido no .gitignore sumiu da lista dos alterados
+		> git status
+		
+	6) Ignorar todos os arquivos com extensão .txt.
+		a) inserir no arquivo .gitignore a linha *.txt
+		
+Aula 13: Git Revert (Salvador de sexta-feiras)
+	Reverte para um commit anterior "mantendo as alterações" efetuadas. Diferente do git reset
+	Ex: Commit atual é o 6. Deseja-se voltar para o commit 3. git revert volta ao 3 mantendo as alterações em 4, 5 e 6.
+	
+	1) Alterar o conteúdo do README.md e do index.html
+	
+	2) Efetuar o commit.
+		> git commit -am "Alteracoes em README.md e index.html"
+		
+	3) Efetuar o git log para ver todos os commits efetuados.
+		> git log
+	
+	4) Assumindo que há erros no novo commit, reverter para o commit anterior usando o código do commit atual.
+		> git revert --no-edit 59ca339baf2a3ed1fedc0f7763d8f9e0e2d1d238
+		
+	5) Notar que foi criado um novo commit, e que o commit com "erro" ainda existe para que possa ser analisado.
+	
+Aula 14: Deletando Branches.
+	1) Listar os branches existentes
+		> git branch
+		
+	2) Ir para o branch teste
+		> git checkout teste
+		
+	3) Mandar os arquivos deste branch para o Github
+		> git push -u origin teste
+		OBS: Será criado um novo branch chamado 'teste' no Github.
+		
+	4) Remover esse branch novo do Github
+		> git push origin :teste
+		
+	5) Deletar esse branch localmente
+		a) ir para o branch master
+		> git checkout master
+		
+		b) deletar com git branch -D <nome_branch>
+		> git branch -D teste
+		
+Aula 15) Puxar alterações dos outros: comando PULL
+	Comando 'pull' é o oposto do 'push'
+	1) Criar um novo arquivo diretamente no Github, no branch 'master'.
+		a) clicar em "create new file"
+		b) Dar um nome e escrever algo em "<> Edit new file". Ex: aula15_teste.js
+		c) Selecionar "Commit directly to the master branch." e clicar em "Commit new file"
+	
+	2) Puxar os arquivos do Github para o repositório local
+		> git pull origin master
+		
+	3) Verificar que o arquivo aula15_teste.js e os logs feitos remotamente estão na máquina local
+		> git log
+		OBS: notar no log que o Author é diferente do Author local.
+		DICA: antes de dar o PUSH, dar o PULL. Assim tudo fica sincronizado.
+		
+Aula 16) Clonando repositórios remotos.
+	Clona um repositório remoto (que não é do usuário) para a máquina local.
+	1) Criar um novo diretório diferente do que se vem trabalhando até então.
+	Ex: criar o diretório modulo_GIT_clone e ir até ele
+	
+	2) Dentro do novo diretorio, executar o git clone com a URL do repositório desejado. Ex: o criado nas aulas prévias.
+		> git clone https://github.com/vicente-cruz/modulogit
+		
+	3) Verificar que todos os arquivos do repositório remoto de fato estão na máquina local, inclusive todos os logs.
+	
+Aula 17) Colaborando com outros repositórios diferente dos criados por mim. Comando FORK.
+	Não é possível executar PUSH normalmente. Deve-se criar um FORK.
+	Ex: Deseja-se colaborar com o projeto Facebook php-graph-sdk
+	1) Na página inicial do Github, buscar por php-graph-sdk em "search"
+	
+	2) Clicar no botão "Fork"
+	
+	3) Notar que o repositório desse projeto foi adicionado o repositório do usuário.
+	Obs: notar que o nome atual é <meu_usuário>/php-graph-sdk. Ex: vicente-cruz/php-graph-sdk
+	Obs2: Notar que há o link para a página do projeto oficial. Ex: https://developers.facebook.com/docs/php
+	
+	4) Fazer clonar esse projeto para a máquina local com git clone.
+		> git clone https://github.com/vicente-cruz/php-graph-sdk
+		Dica: É altamente recomendável criar um novo diretório para clonar o novo repositório.
+
+	5) Ver qual é o nome do branch que foi criado:
+		> git branch
+		Obs: atualmente é o branch 5.x
+	
+	5) Abrir o arquivo php-graph-sdk/src/Facebook/Authentication/OAuth2Client.php, alterar algumas coisas e salvar.
+	Ex: comentar a linha que contém o código "const BASE_AUTHORIZATION_URL = 'https://www.facebook.com';"
+	
+	6) Executar git status e notar que o GIT detectou que houve a alteração no arquivo.
+		> git status
+		
+	7) Efetuar o commit
+		> git commit -am "Comentada a linha const BASE_AUTHENTICATION_URL"
+	
+	8) Verificar qual o nome do repositório remoto deste projeto com git remote
+		> git remote -v 
+		Coincidentemente também se chama 'origin'
+		
+	9) Fazer um push
+		> git push origin 5.x
+		
+	10) Verificar de fato que no Github as alterações foram feitas.
+	
+	11) Enviar a alteração para o projeto original (obviamente necessita aprovação do criador)
+		a) No Github, página inicial do repositório, clicar em "New pull request"
+		b) Na nova tela, verificar se o base fork possui o repositório oficial e se o head fork, o do usuário.
+			ex: "base fork: facebook/php-graph-sdk | base: 5.x" "head fork:vicente-cruz/php-graph-sdk | base: 5.x"
+		c) Clicar em "Create pull request"
+		d) Na nova tela, na aba "Write" inserir as informações sobre as modificações feitas que podem contribuir para o projeto original.
+		e) Após informar tudo, clicar em "Create pull request". O criador deverá analisar as informações e, se concordar, as adicionará ao projeto original.
