@@ -1,0 +1,175 @@
+Aula 1: O que é, conceitos
+    Problemas de programar sem versionamento
+    1: Não conseguir voltar as alterações efetuadas.
+    2: Mesmo arquivo sendo editado por 2 ou mais programadores (código sobrescrito)
+
+    Solução: Versionamento
+        Tecnologias:
+            GIT:
+                GITHub
+                Bit Bucket
+            CVS, SVN, Mercurial
+Aula 2: Instalando
+    Conceito de Repositório
+    Instalando:
+    1) Ir em https://git-scm.com/downloads e ir em Download
+    2) Baixar e instalar
+
+Aula 3: Configurando
+    Abrir o CMD
+    1) Configurar nome: > git config --global user.name "Vicente Cruz"
+    2) Configurar e-mail: > git config --global user.email "vicentesc@daer.rs.gov.br"
+
+    Para visualizar configuração específica. Ex: nome.
+    > git config user.name
+
+    Para listar todas as configurações.
+    > git config --list
+
+Aula 4: Criando e iniciando repositório
+    Uso básico de um terminal shell/cmd. Comandos CD, DIR/LS, MKDIR, etc...
+    1) Ir até a pasta do projeto:
+    > cd xampp/htdocs/cursophp/modulo_git
+
+    2) Iniciar um repositório:
+    > git init
+
+    3) Será criada a seguinte estrutura de diretórios:
+    .git/
+        hooks/ (vários shellscripts chamados pre-*.sample ex:pre-push.sample, etc...)
+        info/
+            exclude
+        objects/
+            info/
+            pack/
+        refs/
+            head/
+            tags/
+        config
+        description
+        HEAD
+
+Aula 5: Branchs e primeiro commit
+    Branch: versões diferentes do sistema
+        master: Versão principal do sistema. Primeiro branch, criado automaticamente.
+    Commit: Envio dos arquivos modificados para o GIT.
+        "Comentar as alterações"
+    0) Executar o git branch para listar todos os branchs existentes (no momento, só o master)
+        > git branch
+    1) Criar o arquivo README.txt ou README.md e escrever alguma coisa nele
+    2) No CMD, dentro da pasta do projeto, digitar git status
+        > git status
+    3) Adicionar os arquivos criados ao "monitoramento" do GIT
+        > git add -A
+    4) Efetuar o "commit" com comentário
+        > git commit -m "Primeiro Commit"
+    5) Ver os registros dos commits com "git log".
+        > git log
+    6) Testar um "segundo commit".
+       a) Modificar o README.md e criar outros arquivos, ex: index.html, style.css
+       b) executer "git status" e ver as notificações de arquivos alterados e novos
+        > git status
+       c) adicionar novos arquivos
+        > git add -A
+       d) Efetuar o segundo commit
+        > git commit -m "README.md modificado, index.html e style.css criados"
+       e) Ver de novo no status.
+        > git status
+
+Aula 6: Revertendo modificações:
+    1) Executar o git log e ver "OS 7 PRIMEIROS NÚMEROS" do commit desejado.
+        > git log
+		
+    2) Fazer alterações aleatórias no branch.
+        a) Modificar "README.md" e criar novo arquivo (ex: script.js)
+		
+    3) Fazer o GIT mostrar o que foi alterado com "git status"
+        > git status
+		
+    4) Adicionar os arquivos criados com "git add -A"
+        > git add script.js
+		
+    5) Efetuar o segundo "commit"
+        > git commit -m "Novo commit com alterações em README.md e adição de script.js"
+	
+    6) Reverter com git reset -<soft | mixed | hard> usando o numero do log que se deseja reverter
+        > git reset --hard e4f875d43d3456143fe819792251c23823e7cfd9
+		
+	7) Recriar o arquivo script.js e efetuar commit
+	
+Aula 7: Navegando entre os branches
+	1) "git branch" mostra todos os branches, o asterisco mostra o branch selecionado
+	2) Criar o branch 'teste'
+		> git branch teste
+	3) Mudar para o 'teste'
+		> git checkout teste
+	4) Criar os arquivos "branch_teste_README.md" e "branch_teste_script.js" e fazer o commit neles
+		> git commit -am "Commitando no branch 'teste'!"
+	5) Voltar para o branch master
+		> git checkout master
+	6) Executar 'git status' e ver que os novos arquivos criados não são reconhecidos no branch master
+		> git status
+		
+Aula 8: Arquivos commitados e os que estão no PC.
+	Diferenças são mostradas com "git diff" e "git diff --name-only".
+	1) Alterar o arquivo "README.md"
+	2) executar "git diff" e ver as modificações realizadas
+		> git diff
+	3) Listar o nome dos arquivos modificados com "git diff --name-only"
+		> git diff --name-only
+	4) Editar outro arquivo, por ex: "script.js", e efetuar o "git diff" e "git diff --name-only".
+		> git diff
+		> git diff --name-only
+	5) Desfazer as alterações feitas em "script.js" com "git checkout HEAD -- script.js".
+		OBS: HEAD indica o BRANCH atual.
+		> git checkout HEAD -- script.js
+	6) Fazer um "git diff" e notar que de fato as alterações foram desfeitas em script.js.
+		Notar que apenas README.md está modificado.
+		> git diff
+	7) Fazer o mesmo para verificar apenas o nome do arquivo modificado é o "README.md" e não mais "script.js"
+		> git diff --name-only
+	8) Fazer o commit.
+		> git commit -am "Novo commit em README.md"
+		
+Aula 9: Criando repositório no Github
+	1) Entrar em https://www.github.com e criar uma conta.
+	2) Clicar em "Create new repository".
+	3) Dar um nome para o repositório em 'Repository name', uma descrição e definir como público.
+	
+Aula 10: Conectar repositório local
+	1) Criar uma chave SSH.
+		Tutorial: https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+		a) Abrir o Git Bash (já vem instalado)
+		b) Digitar o comando 'ssh-keygen.exe -t rsa -b 4096 -C "<email_da_conta_do_github>"'
+			$ ssh-keygen.exe -t rsa -b 4096 -C "vicruz81@yahoo.com.br"
+			  i) Quando pedir caminho, aperte enter
+				  $ Enter file in which to save the key (/u//.ssh/id_rsa):
+			 ii) Informar o passphrase, confirmar depois:
+				  $ Enter passphrase (empty for no passphrase):
+			iii) Abrir o arquivo contendo a chave pública do diretório informado na criação (ex: /u//.ssh/id_rsa)
+			 iv) Copiar seu conteúdo.
+			  v) Ir em "settings" -> SSH and GPG keys -> Clicar em "New SSH Key".
+			 vi) Dar um titulo, colar o conteúdo de  em "Key" e clicar em "Add SSH Key"
+			 
+	2) Ir no repositório criado na aula 9.
+	
+	3) Adicionar o repositório remoto com o repositório da local
+		a) Copiar o texto da página do repositório: git remote add origin https://github.com/vicente-cruz/modulogit.git
+		b) Executar esse comando na máquina local.
+			> git remote add origin https://github.com/vicente-cruz/modulogit.git
+		c) Verificar se o repositório foi adicionado com "git remote" ou "git remote -v". Será mostrado "origin"
+			> git remote
+			> git remote -v
+		d) fetch: puxa conteúdo do repositório remoto para o local.
+		e) push: o contrário.
+	4) Enviar os arquivos do repositório local para o remoto com "git push -u origin <nome_branch>".
+		OBS: CONFIGURAR Git para usar PROXY:
+		> git config --global http.proxy http://<usuario>:<senha>@<ip_proxy>:<porta_proxy>
+		> git push -u origin master
+		OBS: Habilitação de DEBUG para analisar a conexão c/servidor remoto.
+		a) Para debug, definir as variáveis de ambiente GIT_CURL_VERBOSE e GIT_TRACE para 1
+			> set GIT_CURL_VERBOSE=1
+			> set GIT_TRACE=1
+			> git push -u origin master
+			
+Aula 11: Alterações no repositório remoto
