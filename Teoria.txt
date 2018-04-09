@@ -144,7 +144,7 @@ Aula 10: Conectar repositório local
 			$ ssh-keygen.exe -t rsa -b 4096 -C "vicruz81@yahoo.com.br"
 			  i) Quando pedir caminho, aperte enter
 				  $ Enter file in which to save the key (/u//.ssh/id_rsa):
-			 ii) Informar o passphrase, confirmar depois:
+			 ii) Informar o passphrase ou deixar em branco, confirmar depois:
 				  $ Enter passphrase (empty for no passphrase):
 			iii) Abrir o arquivo contendo a chave pública do diretório informado na criação (ex: /u//.ssh/id_rsa)
 			 iv) Copiar seu conteúdo.
