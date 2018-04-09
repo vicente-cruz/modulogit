@@ -322,3 +322,9 @@ Aula 17) Colaborando com outros repositórios diferente dos criados por mim. Com
 		c) Clicar em "Create pull request"
 		d) Na nova tela, na aba "Write" inserir as informações sobre as modificações feitas que podem contribuir para o projeto original.
 		e) Após informar tudo, clicar em "Create pull request". O criador deverá analisar as informações e, se concordar, as adicionará ao projeto original.
+
+        12) Para deletar o repositório do fork:
+            a) Ir no repositório que se deseja excluir -> clicar em settings
+            b) Descer até o fim da página e clicar em "Delete this repository button"
+            c) No pop up, digitar o nome do repositório a ser deletado e clicar em "I understand the consequences, delete the repository"
+            Dica: https://stackoverflow.com/questions/11302639/delete-forked-repo-from-github
