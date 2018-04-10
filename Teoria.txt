@@ -34,7 +34,7 @@ Aula 4: Criando e iniciando repositório
     2) Iniciar um repositório:
     > git init
 
-    3) Será criada a seguinte estrutura de diretórios:
+    3) Será criado o diretório '.git/' com a seguinte estrutura de diretórios:
     .git/
         hooks/ (vários shellscripts chamados pre-*.sample ex:pre-push.sample, etc...)
         info/
@@ -48,6 +48,7 @@ Aula 4: Criando e iniciando repositório
         config
         description
         HEAD
+    Obs: Para excluir o repositório basta deletar o diretório '.git/'
 
 Aula 5: Branchs e primeiro commit
     Branch: versões diferentes do sistema
