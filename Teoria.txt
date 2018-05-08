@@ -96,7 +96,10 @@ Aula 6: Revertendo modificações:
     6) Reverter com git reset -<soft | mixed | hard> usando o numero do log que se deseja reverter
         > git reset --hard e4f875d43d3456143fe819792251c23823e7cfd9
 		
-	7) Recriar o arquivo script.js e efetuar commit
+    7) Recriar o arquivo script.js e efetuar commit
+
+    OBS: Para efetuar commit apenas de um arquivo:
+        > git commit -m "Meu commit" /caminho/para/arquivo.js
 	
 Aula 7: Navegando entre os branches
 	1) "git branch" mostra todos os branches, o asterisco mostra o branch selecionado
