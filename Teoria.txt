@@ -199,6 +199,12 @@ Aula 11: Alterações no repositório remoto
 		> git push -u origin master
 	
 	10) Analisar no repositorio remoto se os arquivos estão lá.
+
+        11) Remover um arquivo ou diretorio do repositorio remoto:
+            11.1) Removendo arquivo:
+                > git rm --cached aula11_index.html
+            11.2) Removendo diretorio:
+                > git rm --cached -r meu_diretorio
 	
 Aula 12: Ignorando arquivos do repositório.
 	1) Criar um arquivo qualquer. Ex: backup_db.sql e senhas.txt
