@@ -26,6 +26,12 @@ Aula 3: Configurando
     Para listar todas as configurações.
     > git config --list
 
+    Para remover uma configuração específica. Ex: nome
+    > git config --global --unset user.name
+
+    Para abrir um editor de texto e configurar os parametros
+    > git config --global --edit
+
 Aula 4: Criando e iniciando repositório
     Uso básico de um terminal shell/cmd. Comandos CD, DIR/LS, MKDIR, etc...
     1) Ir até a pasta do projeto:
