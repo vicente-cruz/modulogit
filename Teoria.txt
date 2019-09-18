@@ -209,11 +209,20 @@ Aula 11: Alterações no repositório remoto
 	
 	10) Analisar no repositorio remoto se os arquivos estão lá.
 
-        11) Remover um arquivo ou diretorio do repositorio remoto:
-            11.1) Removendo arquivo:
-                > git rm --cached aula11_index.html
-            11.2) Removendo diretorio:
-                > git rm --cached -r meu_diretorio
+    11) Remover um arquivo ou diretorio do repositorio remoto:
+        11.1) Removendo arquivo:
+            > git rm --cached aula11_index.html (mantém o arquivo no repositório)
+            OU
+            > git rm -f aula11_index.html (exclui tudo)
+        11.2) Removendo diretorio:
+            > git rm --cached -r meu_diretorio (mantém o arquivo no repositório)
+            OU
+            > git rm -rf meu_diretorio (exclui tudo)
+        11.3) Faz o commit
+        	> git commit -m "Removido o arquivo desejado"
+        11.4) Faz o push e remove de vez
+        	> git push origin master
+
 	
 Aula 12: Ignorando arquivos do repositório.
 	1) Criar um arquivo qualquer. Ex: backup_db.sql e senhas.txt
